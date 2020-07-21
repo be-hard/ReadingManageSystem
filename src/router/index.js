@@ -2,8 +2,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from "../views/Login"
 import Home from "../views/Home"
-Vue.use(VueRouter)
+import SystemFirst from "../views/SystemFirst"
+import Message from "../views/Message"
+import Read from "../views/Read"
+import Shop from "../views/Shop"
+import History from "../views/History"
+import Motion from "../views/Motion"
 
+Vue.use(VueRouter)
+   
 const routes = [
   {
   path:"/",
@@ -17,7 +24,33 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: Home
+    component: Home,
+    children:[
+      {
+        path:"/firstPage",
+        component: SystemFirst
+      },
+      {
+        path:"/message",
+        component: Message
+      },
+      {
+        path:"/read",
+        component: Read
+      },
+      {
+        path:"/shop",
+        component: Shop
+      },
+      {
+        path:"/history",
+        component: History
+      },
+      {
+        path:"/motion",
+        component: Motion
+      }
+    ]
   }
   // {
 
