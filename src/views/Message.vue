@@ -6,9 +6,13 @@
     <div class="main-container">
       <el-tabs v-model="activeName">
         <el-tab-pane :label="`未读消息 (${unReadNum})`" name="first">
-          <el-table :data="unread" style="width: 100%" :show-header="false" max-height="450">
-            <el-table-column prop="title"></el-table-column>
-            <el-table-column prop="date" width="180"></el-table-column>
+          <el-table    :data="unread" style="width: 100%" :show-header="false" max-height="450">
+            <el-table-column >
+              <template slot-scope="scope">
+                <span class="msg">{{scope.row.title}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column prop="date" width="180" ></el-table-column>
             <el-table-column width="180">
               <template slot-scope="scope">
                 <el-button size="small" @click="handleRead(scope.$index)">标为已读</el-button>
@@ -19,7 +23,11 @@
         </el-tab-pane>
         <el-tab-pane :label="`已读消息 (${readNum})`" name="second">
           <el-table :data="read" style="width: 100%" :show-header="false" max-height="480">
-            <el-table-column prop="title"></el-table-column>
+            <el-table-column>
+            <template slot-scope="scope">
+                <span class="msg">{{scope.row.title}}</span>
+              </template>
+               </el-table-column>
             <el-table-column prop="date" width="180"></el-table-column>
             <el-table-column width="180">
               <template slot-scope="scope">
@@ -31,7 +39,11 @@
         </el-tab-pane>
         <el-tab-pane :label="`回收站 (${recycleNum})`" name="third">
           <el-table :data="recycle" style="width: 100%" :show-header="false" max-height="480">
-            <el-table-column prop="title"></el-table-column>
+           <el-table-column>
+            <template slot-scope="scope">
+                <span class="msg">{{scope.row.title}}</span>
+              </template>
+               </el-table-column>
             <el-table-column prop="date" width="180"></el-table-column>
             <el-table-column width="180">
               <template slot-scope="scope">
@@ -57,7 +69,7 @@ export default {
         {
           date: "2018-04-19 20:00:00",
           title:
-            "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护于今晚凌晨2点到5点进行升级维护于今晚凌晨2点到5点进行升级维护"
+            "【系统通知】该系统近期升级维护，如有不便，请见谅"
         },
         {
           date: "2018-04-19 21:00:00",
@@ -65,39 +77,31 @@ export default {
         },
         {
           date: "2018-04-19 20:00:00",
-          title: "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护"
+          title: "近期新上架了新书，快去瞧瞧吧"
         },
         {
           date: "2018-04-19 21:00:00",
-          title: "今晚12点整发大红包，先到先得"
+          title: "您收藏的书最近降价了，快去瞧瞧吧"
         },
-        {
+         {
           date: "2018-04-19 20:00:00",
-          title: "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护"
+          title: "近期新上架了新书，快去瞧瞧吧"
         },
         {
           date: "2018-04-19 21:00:00",
-          title: "今晚12点整发大红包，先到先得"
-        },
-        {
-          date: "2018-04-19 20:00:00",
-          title: "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护"
-        },
-        {
-          date: "2018-04-19 21:00:00",
-          title: "今晚12点整发大红包，先到先得"
+          title: "您收藏的书最近降价了，快去瞧瞧吧"
         }
       ],
       read: [
-        {
-          date: "2018-04-19 20:00:00",
-          title: "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护"
+       {
+          date: "2018-04-19 21:00:00",
+          title: "您收藏的书最近降价了，快去瞧瞧吧"
         }
       ],
       recycle: [
         {
           date: "2018-04-19 20:00:00",
-          title: "【系统通知】该系统将于今晚凌晨2点到5点进行升级维护"
+          title: "近期新上架了新书，快去瞧瞧吧"
         }
       ]
     }
@@ -161,8 +165,11 @@ export default {
     box-shadow: 0 0 2px #ccc;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.8);
-     
-    
+ 
+  
+     .msg{
+        color: #409eff;
+     }
     .read {
       display: block;
       margin: 10px auto 0;

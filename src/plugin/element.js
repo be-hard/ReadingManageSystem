@@ -28,9 +28,10 @@ import {
     Image,
     Card,
     Switch,
-    Confirm,
-    Dialog,
-    Pagination
+    MessageBox ,
+        Dialog,
+    Pagination,
+    Checkbox
 
 } from "element-ui"
 Vue.use(Button)
@@ -62,5 +63,7 @@ Vue.use(Card)
 Vue.use(Switch)
 Vue.use(Dialog)
 Vue.use(Pagination)
+Vue.use(Checkbox)
 Vue.prototype.$message = Message
-Vue.prototype.$confirm = Confirm
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.promp

@@ -40,6 +40,7 @@ export default {
   display: flex;
   flex-direction: column;
   .main{
+    width: 100%;
     flex: 1;
     display: flex;
     background-color: rosybrown;

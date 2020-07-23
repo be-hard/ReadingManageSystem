@@ -17,7 +17,7 @@ export default {
 
 <style lang="less" scoped>
     main{
-      
+      width: 400px;
         flex:1;
         background-color: #eee;
     }

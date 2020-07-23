@@ -35,7 +35,7 @@
               <el-dropdown-item>我的书城</el-dropdown-item>
             </router-link>
 
-            <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+            <el-dropdown-item divided command="loginout"><router-link to="/login" tag="div">退出登录</router-link></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <!-- <el-button type="info" @click="logout">退出登录</el-button> -->

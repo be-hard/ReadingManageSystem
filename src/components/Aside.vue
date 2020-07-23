@@ -23,7 +23,7 @@
             </template>
             <!-- 二级菜单 -->
             <template v-if="item.subs">
-              <el-menu-item :index="'/'+subItem.path" v-for="subItem in item.subs" :key="subItem.id" @click="saveNavState('/'+subItem.path)">
+              <el-menu-item :index="'/'+item.path+'/'+subItem.path" v-for="subItem in item.subs" :key="subItem.id" @click="saveNavState('/'+subItem.path)">
                 <template slot="title">
                   <!-- 图标 -->
                   <i class="el-icon-menu"></i>

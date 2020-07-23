@@ -163,7 +163,7 @@ export default {
   height: 100%;
   background-image: url(../assets/bg.jpg);
   //   background-repeat: no-repeat;
-  background-position: 1000px;
+  background-position: 1300px;
   //   background-size: cover;
   color: rgba(201, 15, 15, 0.6);
 

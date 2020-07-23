@@ -54,11 +54,11 @@
       background
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage4"
+      
       :page-sizes="[5,10,15,20]"
-      :page-size="100"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="20">
+      :page-size="5"
+      layout="total, prev, pager, next, jumper"
+      :total="14">
     </el-pagination>
     </el-card>
   </div>
@@ -155,5 +155,10 @@ export default {
   //     // box-shadow: 0 0 2px #ccc;
   //     padding: 0 20px;
   //   }
+   .el-pagination {
+     display: flex;
+     justify-content: center;
+     padding-top: 20px;
+    }
 }
 </style>

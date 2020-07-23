@@ -6,7 +6,6 @@ import SystemFirst from "../views/SystemFirst"
 import Message from "../views/Message"
 import Read from "../views/Read"
 import Shop from "../views/Shop"
-import History from "../views/History"
 import Motion from "../views/Motion"
 
 Vue.use(VueRouter)
@@ -25,6 +24,7 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+    redirect:"/firstPage",
     children:[
       {
         path:"/firstPage",
@@ -39,12 +39,8 @@ const routes = [
         component: Read
       },
       {
-        path:"/shop",
+        path:"/shop/:id",
         component: Shop
-      },
-      {
-        path:"/history",
-        component: History
       },
       {
         path:"/motion",
@@ -69,4 +65,8 @@ router.beforeEach((to, from, next) => {
   let token = sessionStorage.getItem("token");
   token ? next() : next("/login");
 })
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}
 export default router
