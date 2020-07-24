@@ -25,6 +25,7 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+    redirect:"/firstPage",
     children:[
       {
         path:"/firstPage",
