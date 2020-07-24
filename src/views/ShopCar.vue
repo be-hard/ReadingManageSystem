@@ -79,6 +79,10 @@ export default {
       selectList: [],
     }
   },
+  deactivated(){
+    this.selectAll = false;
+    console.log(562)
+  },
   methods: {
     close() {
       this.$emit("close")
@@ -132,19 +136,13 @@ duration:"2000"
     this.selectList = this.myBookList.filter((item) => {
       return item.checked
     })
+    if(this.selectList.length === this.bookNum){
+      this.selectAll = true;
+      console.log(456)
+    }
   },
   computed: {
-    // myBookList() {
-    //   return this.bookList.map((item) => {
-    //     console.log(item)
-    //     let newObj =  Object.assign(item, {
-    //       checked: false,
-    //     })
-    //     this.$set(item, "checked", item.checked);
-    //     return newObj
-    //   })
 
-    // },
     payMoney(){
       return this.selectList.reduce((prev,next)=>{
         return prev += parseInt(next.count) * parseInt(next.price)
@@ -156,20 +154,37 @@ duration:"2000"
    
   },
   watch: {
-    bookList(val) {
-      // this.$set解决添加data属性后页面渲染不响应的问题
+    bookList(val,oldVal) {
+      this.$set解决添加data属性后页面渲染不响应的问题
       console.log(val)
       this.myBookList = val.map((item) => {
         console.log(item.checked)
         this.$set(item, "checked", item.checked)
         this.$set(item, "count", 1)
         let obj = Object.assign(item, {
-          checked: false,
+          checked: item.checked,
           count: 1,
         })
         console.log(obj)
         return obj
       })
+     
+      // let item = val[val.length-1];
+   
+      //   this.$set(item, "checked", false)
+      //   this.$set(item, "count", 1)
+      //   let obj = Object.assign(item, {
+      //     checked: false,
+      //     count: 1,
+      //   })
+      //    this.myBookList = [...oldVal,obj]
+      // //   console.log(obj)
+      //   return obj
+      // })
+      // console.log(val === newVal)
+      // console.log(252)
+      // this.myBookList = val.slice(0);
+      // console.log(this.myBookList)
     },
     // myBookList(val){
     //   console.log(256)
