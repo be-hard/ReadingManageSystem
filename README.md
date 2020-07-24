@@ -43,7 +43,7 @@ tab标签、表格组件的使用
 1.分类为历史、小说、散文，不同种类的书籍展示共用同一个组件
 2.购买图书，点击加入书单，书籍进入到我的购买书单中，点击我的书单进入到购书结算界面
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片5.jpg)
-![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片6.jpg)
+![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片6.png)
 ### 我的心情记录
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片7.jpg)
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片8.jpg)
