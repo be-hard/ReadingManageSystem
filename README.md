@@ -19,7 +19,7 @@ npm run build
 ### 公共组件部分
 左侧导航栏，点击头部的小图标可切换折叠显示
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/nav.jpg)
-![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/nav01.jpg)
+![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/nav02.jpg)
 ### 登录界面
 1.表单验证，没有输入内容或者输入长度超出限定值则验证失败
 2.点击登录后发送请求，如果用户已经存在，则返回token，并把token存入sessionStorage中，进入主页面
