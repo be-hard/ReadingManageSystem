@@ -18,6 +18,8 @@ npm run build
     包含了登录验证，购买书籍，记录阅读记录，记录阅读心情记录，消息浏览界面
 ### 公共组件部分
 左侧导航栏，点击头部的小图标可切换折叠显示
+
+
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/nav.jpg)
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/nav02.jpg)
 ### 登录界面
