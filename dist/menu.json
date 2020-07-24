@@ -1,0 +1,55 @@
+[
+    {
+      "icon": "el-icon-lx-home",
+      "id": "12135",
+      "title": "系统首页"
+    },
+    {
+      "icon": "el-icon-lx-copy",
+      "id": "12136",
+      "title": "我的消息"
+    },
+    {
+      "icon": "el-icon-lx-emoji",
+      "id": "12139",
+      "title": "我的阅读记录"
+    },
+    {
+      "icon": "el-icon-lx-calendar",
+      "id": "12138",
+      "title": "购书中心",
+      "subs": [
+        {
+          "id": "121371",
+          "title": "历史文学"
+        },
+        {
+          "id": "121372",
+          "title": "小说",
+          "subs": [
+            {
+              "id": "1213721",
+              "title": "武侠小说"
+            },
+            {
+              "id": "1213722",
+              "title": "城市小说"
+            },
+            {
+              "id": "1213723",
+              "title": "青春小说"
+            }
+          ]
+        },
+        {
+          "id": "121373",
+          "title": "散文"
+        }
+      ]
+    },
+    {
+      "icon": "el-icon-lx-emoji",
+      "id": "121311",
+      "title": "我的心情记录"
+    }
+  ]
