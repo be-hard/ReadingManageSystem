@@ -1,6 +1,11 @@
 module.exports = {
-    baseUrl: './',
-    assetsDir: 'static',
-    productionSourceMap: false,
+    build:{
+     
+        baseUrl: './',
+        assetsDir: 'static',
+        productionSourceMap: false,
+
+    }
+    
 
 }
