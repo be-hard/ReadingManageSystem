@@ -31,8 +31,8 @@
             <i class="el-icon-caret-bottom"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <router-link to="/" tag="div">
-              <el-dropdown-item>我的书城</el-dropdown-item>
+            <router-link to="/shop/history" tag="div">
+              <el-dropdown-item>逛逛书城</el-dropdown-item>
             </router-link>
 
             <el-dropdown-item divided command="loginout"><router-link to="/login" tag="div">退出登录</router-link></el-dropdown-item>

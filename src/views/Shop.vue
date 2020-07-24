@@ -131,6 +131,7 @@ duration:"1000"
 .shop {
   position: relative;
   padding: 0 20px;
+  height: 100%;
   .head {
     padding: 10px 0px;
     color: #606266;

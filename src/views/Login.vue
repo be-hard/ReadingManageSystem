@@ -37,15 +37,16 @@
 
 <script>
 // @ is an alias to /src
-
+let username = localStorage.getItem("username") || "";
+let password = localStorage.getItem("password") || "";
 export default {
   name: 'Login',
   data() {
     return {
       // 登录表单的数据绑定对象
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: username,
+        password: password
       },
       // 表单的验证规则对象
       loginFormRules: {
@@ -69,14 +70,15 @@ export default {
         // 解构赋值
         let { data: res } = await this.$http.post('login', this.loginForm)
         console.log(res)
-        if (res.meta.status !== 200) return this.$message.error('登陆失败！')
+        if (res.meta.status !== 200) return this.$message.error('登录失败！')
         this.$message({
-          message: '登陆成功！',
+          message: '登录成功！',
           type: 'success',
           duration: 1000
         })
         sessionStorage.setItem('token', res.data.token)
-
+        localStorage.setItem("username",this.loginForm.username)
+        localStorage.setItem("password",this.loginForm.password)
         this.$router.push('/home')
       })
     },
