@@ -1,5 +1,5 @@
 <template>
-  <div class="firstPage" >
+  <div class="firstPage">
     <el-row :gutter="20">
       <el-col :span="8" class="left-col">
         <el-card class="left-card" style="height:252px;">
@@ -7,7 +7,7 @@
             <img src="../assets/avatar.jpg" alt />
 
             <div class="words">
-              <div>早上好</div>
+              <div>{{desprit}}</div>
               <div class="name">admin</div>
             </div>
           </div>
@@ -15,7 +15,7 @@
             <i class="el-icon-s-opportunity"></i>主人，今天也要元气满满哦！
           </div>
         </el-card>
-        <el-card class="top-bottom-card"  style="height:252px;">
+        <el-card class="top-bottom-card" style="height:252px;">
           <div class="encourage">生活感悟</div>
           <p v-for="(item,index) in encourages" :key="index">{{item}}</p>
         </el-card>
@@ -64,8 +64,6 @@
               <span @click="open">添加</span>
             </h3>
 
-  
-
             <el-table :show-Header="false" :data="todoList" max-height="342px">
               <el-table-column width="50" align="center">
                 <template slot-scope="scope">
@@ -75,7 +73,14 @@
               <el-table-column>
                 <template slot-scope="scope">
                   <div class="wrap">
-                    <input type="text" v-focus v-model="scope.row.item" :class="{'unheal':editing === scope.row}" @blur="complete" @keyup.enter="complete"/>
+                    <input
+                      type="text"
+                      v-focus
+                      v-model="scope.row.item"
+                      :class="{'unheal':editing === scope.row}"
+                      @blur="complete"
+                      @keyup.enter="complete"
+                    />
                     <span :class="{'del':scope.row.status}">{{scope.row.item}}</span>
                   </div>
                 </template>
@@ -91,16 +96,16 @@
         </el-row>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
 <script>
-
 export default {
   name: "firstPage",
   data() {
     return {
+      desprit: "",
+      timer: null,
       todoList: [
         { status: false, item: "学习vue" },
         { status: false, item: "学习node" },
@@ -110,59 +115,77 @@ export default {
         { status: false, item: "学习node" },
       ],
       editing: {},
-      encourages:["学习如逆水行舟，不进则退","勤能补拙是良训","没有什么能阻挡你前进的步伐，除了你自己"]
+      encourages: [
+        "学习如逆水行舟，不进则退",
+        "勤能补拙是良训",
+        "没有什么能阻挡你前进的步伐，除了你自己",
+      ],
     }
   },
 
   methods: {
+    getNow() {
+      let time = new Date().getHours()
+      console.log(time)
+      if (time > 3 && time < 11) {
+        this.desprit = "早上好"
+      } else if (time >= 11 && time <= 18) {
+        this.desprit = "中午好"
+      } else {
+        this.desprit = "下午好"
+      }
+    },
     edit(item) {
       this.editing = item
     },
-    complete(){
+    complete() {
       this.editing = {}
     },
-    del(index){
-      this.todoList.splice(index,1)
+    del(index) {
+      this.todoList.splice(index, 1)
     },
     open() {
-        this.$prompt('请输入您的计划事件', '添加Todo', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          inputPattern: /\w+/,
-      
-          inputErrorMessage: '请输入内容'
-        }).then(({ value }) => {
-          this.$message({
-            type: 'success',
-            message: '你的计划事件是: ' + value
-          });
-          console.log(this)  
-          this.todoList.unshift({
-            status:false,
-            item:value
-          })  
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '取消输入'
-          }); 
-            
-        });
-      }
-    
-  },
-  directives:{
-    focus:{
-  update(el){
-    el.focus()
-  }
+      this.$prompt("请输入您的计划事件", "添加Todo", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        inputPattern: /\w+/,
 
-}
-  }
+        inputErrorMessage: "请输入内容",
+      })
+        .then(({ value }) => {
+          this.$message({
+            type: "success",
+            message: "你的计划事件是: " + value,
+          })
+          console.log(this)
+          this.todoList.unshift({
+            status: false,
+            item: value,
+          })
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "取消输入",
+          })
+        })
+    },
+  },
+ 
+  beforeRouteEnter(to, from, next) {
+    next((vm) => vm.getNow())
+  },
+  directives: {
+    focus: {
+      update(el) {
+        el.focus()
+      },
+    },
+  },
 }
 </script>
 
-<style lang="less" scoped> 
+<style lang="less" scoped>
 .firstPage {
   padding: 15px;
 
@@ -194,7 +217,6 @@ export default {
     }
   }
   .tips {
-    
     padding-top: 15px;
     font-size: 14px;
     line-height: 20px;
@@ -205,7 +227,6 @@ export default {
     margin-top: 20px;
 
     .encourage {
-      
       font-size: 18px;
       font-weight: bold;
       color: #4077ff;

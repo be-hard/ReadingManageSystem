@@ -4,7 +4,7 @@
       <div class="header">
         <i class="avatar"></i>
         <p class="hi">
-          <span>{{nowtime}}好！</span>
+          <span>{{desprit}}! </span>
           <span>{{name}}</span>
         </p>
       </div>
@@ -41,7 +41,7 @@ export default {
   name: "Motion",
   data() {
     return {
-      nowtime: "",
+      desprit: "",
       name: "admin",
       addClick: false,
       motionList: [
@@ -109,18 +109,17 @@ export default {
     time() {
       setInterval(this.getTime, 60)
     },
-    getTime() {
+    getNow() {
       let time = new Date().getHours()
-      if (time < 12) {
-        return "早上"
-      } else if (time > 12 && time < 14) {
-        return "中午"
-      } else if (time > 14 && time < 18) {
-        return "下午"
+      console.log(time)
+      if (time > 3 && time < 11) {
+        this.desprit = "早上好"
+      } else if (time >= 11 && time <= 18) {
+        this.desprit = "中午好"
       } else {
-        return "晚上"
+        this.desprit = "下午好"
       }
-
+    
       //   if()
       //  return this.nowtime = new Date().getTime();
     },
@@ -149,11 +148,12 @@ export default {
       return this.motionList.length
     }
   },
-  created() {
-    this.time()
-    this.nowtime = this.getTime()
+   beforeRouteEnter(to, from, next) {
+    next((vm) => vm.getNow())
   }
+ 
 }
+
 </script>
 
 <style lang="less" scoped>
