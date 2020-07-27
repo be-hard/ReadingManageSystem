@@ -59,7 +59,7 @@ tab标签、表格组件的使用
 
 ![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片5.jpg)
 
-![Image text](https://github.com/be-hard/ReadingManageSystem/raw/master/screen/图片6.jpg)
+![Image text](https://github.com/be-hard/ReadingManageSystem/blob/master/screen/图片6.jpg)
 
 
 ### 我的心情记录
